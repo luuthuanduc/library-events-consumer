@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'com.aimatrix'
-version = '0.0.1-SNAPSHOT'
+version = '1.0.0'
 sourceCompatibility = '17'
 
 configurations {
@@ -37,4 +37,8 @@ sourceSets {
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+tasks.named('bootBuildImage') {
+    environment = ["BPE_DELIM_JAVA_TOOL_OPTIONS": " ", "BPE_APPEND_JAVA_TOOL_OPTIONS": "-Dspring.profiles.active=container"]
 }
